@@ -1,6 +1,9 @@
 ## moneyjet
 A simple personal income/expense balance management tool
 
+### Home
+Application lives [Here](http://moneyjet.pythonanywhere.com)
+
 ### Main Features
 This Web application helps to manage group or personal cash balance.
 It has simple intuitive interface with responsive adaptation to different screens,
