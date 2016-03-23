@@ -1,0 +1,155 @@
+/* Border for debugging */
+/* * {
+   border: 1px solid white !important;
+} */
+/* 
+Variables
+Background: #2d4059         blue
+Navbar background: #ea5455  red
+Icons: #e57841              orange
+Text: #ffd460               yellow
+Text in nabar: #f7bbbb      rose  */
+
+/* Base structure */
+
+.dashboard-main {
+  padding:0px;
+}
+.sub-header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+
+/*
+ * Main content
+ */
+
+.dashboard-main h3 {
+  margin-top:40px;
+}
+
+/* Narrow dashboard date selector form and center it together with arrows*/
+.dashboard-form {
+    display: table;
+    width: 100%;
+} 
+.dashboard-form > div {
+    display: table-row;
+    margin: 0;
+}
+.dashboard-form > div > div {
+    display: table-cell; text-align:center; float:none; width:60%;
+    background-color: #2d4059;
+    color: #ffd460;
+}
+.dashboard-form > div > div * {
+    background-color: #2d4059;
+    color: #e57841;
+    font-weight: bold;
+}
+.dashboard-form > div > div:first-child {
+    text-align:right;
+    width:20%;
+}
+.dashboard-form > div > div:last-child {
+    text-align:left;
+    width:20%;
+}
+
+/* Table styles */
+.mytable {
+  text-align: left;
+  margin-top:20px;
+}
+.mytable > .table th,
+.mytable > .table td {
+  border-color: #666666;        /* Set same color as LineChart grid */
+}
+.mytable > .table {
+  margin-bottom:0px;
+}
+.mytable > table > thead {
+  font-size:20px;
+}
+.mytable th:last-child, td:last-child {
+  text-align:right;
+}
+.mytable td.td_incomes{
+  color:green;
+}
+
+
+@media (min-width: 768px) {
+  .main {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}
+.main .page-header {
+  margin-top: 0;
+}
+
+
+/*
+ * Placeholder dashboard ideas
+ */
+
+.placeholders {
+  margin-bottom: 30px;
+  text-align: center;
+}
+.placeholders h4 {
+  margin-bottom: 0;
+}
+.placeholder {
+  margin-bottom: 20px;
+}
+.placeholder img {
+  display: inline-block;
+  border-radius: 50%;
+}
+
+/* Centering the charts */
+.div-chart {
+
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* Chrome */
+    display: flex;             /* Opera 12.1, Firefox 20+ */
+    flex-direction: row;
+    flex-wrap: wrap;
+    -webkit-justify-content: space-around; /* Safari 6.1+ center horizontal*/
+    justify-content: center;    /* Horizontal */
+    /* align-items: center; */        /* Vertical */
+}
+/* .div-chart > div {
+    margin: 0 auto;
+}       /* Center auto generated divs in Safari (non-flex old style hack) */
+                           
+.outer {
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- */
+    display: -ms-flexbox;      /* IE 10 */
+    display: -webkit-flex;     /* Chrome */
+    display: flex;             /* Opera 12.1, Firefox 20+ */
+    -webkit-justify-content: space-around; /* Safari 6.1+ */
+    justify-content: center;
+    flex-wrap: wrap;
+    background: khaki;
+    height: 350px;
+    width: 100%;
+    padding:50px;
+    border: 1px solid grey;
+}
+.inner {
+    background: lightblue;
+}
+.inner img {
+    border: 1px solid black;
+}
+
+
+
+

@@ -1,0 +1,78 @@
+@font-face {
+    font-family: 'moneyflow';
+    src:    url('../fonts-font-face/moneyflow.eot?94uc6y');
+    src:    url('../fonts-font-face/moneyflow.eot?94uc6y#iefix') format('embedded-opentype'),
+        url('../fonts-font-face/moneyflow.ttf?94uc6y') format('truetype'),
+        url('../fonts-font-face/moneyflow.woff?94uc6y') format('woff'),
+        url('../fonts-font-face/moneyflow.svg?94uc6y#moneyflow') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'moneyflow' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-car:before {
+    content: "\e900";
+}
+.icon-cart:before {
+    content: "\e901";
+}
+.icon-dollar_sign:before {
+    content: "\e902";
+}
+.icon-earth:before {
+    content: "\e903";
+}
+.icon-gift:before {
+    content: "\e904";
+}
+.icon-glass:before {
+    content: "\e905";
+}
+.icon-hat:before {
+    content: "\e906";
+}
+.icon-heart:before {
+    content: "\e907";
+}
+.icon-house:before {
+    content: "\e908";
+}
+.icon-kid:before {
+    content: "\e909";
+}
+.icon-knife:before {
+    content: "\e90a";
+}
+.icon-magic_stick:before {
+    content: "\e90b";
+}
+.icon-one_dollar:before {
+    content: "\e90c";
+}
+.icon-spy:before {
+    content: "\e90d";
+}
+.icon-tags:before {
+    content: "\e90e";
+}
+.icon-taxi:before {
+    content: "\e90f";
+}
+.icon-wrench:before {
+    content: "\e910";
+}
+

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load bootstrap3 %}       <!-- Using bootstrap3 app-->
+
+{% block title %}Add New Transaction{% endblock title %}
+
+{% block content %}
+    <br>
+    <form method='POST' action='' >
+        {% csrf_token %}
+        
+        <!-- {{form.as_p}} -->          <!-- Default Django -->
+        {% bootstrap_form form layout='inline' %}   <!-- Using bootstrap3  app-->
+
+        <!-- {{form.category_id.as_hidden}}      hide in template from User
+        {{form.user_id.as_hidden}}          hide in template from User -->
+        <div class="actions form-actions">
+            <button type="submit" class="btn mybtn-primary btn-primary">Done</button>
+        </div>    
+    </form>
+{% endblock content %}
+    
+
+        
+

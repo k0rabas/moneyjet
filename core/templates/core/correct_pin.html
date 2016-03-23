@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+ 
+{% block title %}Correct PIN{% endblock title %}
+
+{% block content %}
+    <br>      
+    <br>      
+    <br>      
+    <div>
+        <h4><i class="fa fa-thumbs-o-up fa-3x"></i></h4>
+        <h4>Great! You are in family {{ family_requested }} now, together with:</h4>
+    </div>
+    {% for family_member in family_members%}
+        <div>
+        {{ family_member.first_name }}&nbsp;{{ family_member.last_name }}&nbsp;{{ family_member.email }}
+        </div>
+    {% endfor%}
+    
+    <br>
+    <h6>{% if user.is_authenticated %}Welcome back {{ user.email }}
+        {% else %}You are not logged in
+        {% endif %}
+    </h6>
+    
+{% endblock content %}
+    
+
+        
+

@@ -1,0 +1,50 @@
+{% extends "account/allauth_base.html" %}
+{% load bootstrap3 %}       <!-- Using bootstrap3  app-->
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Signup" %}{% endblock %}
+
+{% block content %}
+<h1>{% trans "Sign Up" %}</h1>
+
+<p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">Log In</a>{% endblocktrans %}</p>
+
+<!-- <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+  {% csrf_token %}
+  {{ form.as_p }}
+  {% bootstrap_form form layout='horizontal' %}   Using bootstrap3  app
+  {% if redirect_field_value %}
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+  {% endif %}
+  <button type="submit">{% trans "Sign Up" %} &raquo;</button>
+  <button class="btn mybtn-primary btn-primary" type="submit">
+  {% trans "Sign Up" %}</button>
+</form> -->
+
+<form action="{% url 'account_signup' %}" method="post" role="form"
+    class="signup form-horizontal" id="signup_form">{% csrf_token %}
+    {% for field in form %}
+        <div class="form-group{% if field.field.required %} required{% endif %}">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-10">
+                {% bootstrap_field field show_label=False form_group_class=None %}
+            </div>
+            <div class="col-md-1">
+            </div>
+        </div>
+   {% endfor %}
+   {% buttons %}
+      {% if redirect_field_value %}
+      <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+      {% endif %}
+      <div class="col-sm-offset-2 col-sm-10">
+          <button class="btn mybtn-primary btn-primary" type="submit">
+          {% trans "Sign Up" %}</button>
+       </div>
+   {% endbuttons %}
+</form>
+
+
+{% endblock %}

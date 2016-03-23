@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+ 
+{% block title %}Moneyjet{% endblock title %}
+
+{% block content %}
+    <ul class="nav nav-pills nav-justified nav-pills-justified-fix">
+      <li class="active"><a href='{% url "transactions_exp" %}'>Expense</a></li>
+      <li><a href='{% url "transactions_inc" %}'>Income</a></li>
+    </ul>
+    <br>      
+    <br>      
+    <div class="row placeholders">
+        {% for entry in categories %}
+            <a class="my_category_element" href='{% url "add_trans_url" category_id=entry.id %}'>
+                <div class="col-xs-3 col-sm-2 col-md-1 placeholder ">
+                    <!-- <i class="{{ entry.icon }} fa-3x"></i> -->
+                    <i class="{{ entry.icon_face }}" style="font-size:52px;"></i>
+                    <h5 class="icon_name">{{ entry.name }}</h5>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+    
+{% endblock content %}
+    
+
+        
+

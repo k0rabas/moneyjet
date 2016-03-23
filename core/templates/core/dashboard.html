@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+{% load googlecharts %}
+ 
+{% block title %}Dashboard{% endblock title %}
+
+{% block content %}
+    <!-- Session: {{ mydate }} 
+    <br>-->
+    <div class="dashboard-form">
+        <div>
+            <div class="actions form-actions">  <!-- Arrow button for future -->
+                <!-- <button class="btn mybtn-primary btn-default">
+                    <i class="fa fa-angle-left fa-lg"></i>
+                </button> -->
+            </div>
+            <div>
+                <form class="dashboard-form" action="" method="post">
+                    {% csrf_token %}
+                    <!-- {{ form }} -->
+                    {% bootstrap_form form %}   <!-- Using bootstrap3  app-->
+                </form>
+            </div>
+            <div class="actions form-actions">      <!-- Arrow button for future -->
+                <!-- <button class="btn mybtn-primary btn-default">
+                    <i class="fa fa-angle-right fa-lg"></i>
+                </button> -->
+            </div>
+        </div>
+    </div>
+    <!-- <select class="form-control form-inline" >
+      <option value="1">One</option>
+      <option selected value="2">Two</option>
+      <option value="3">Three</option>
+      <option value="4">Four</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="6">7</option>
+      <option value="6">8</option>
+    </select> -->
+    <!-- <div class="actions form-actions">
+        <button type="submit" class="btn mybtn-primary btn-primary">Submit</button>
+    </div>     -->
+
+    
+
+    <div class="container-fluid dashboard-main">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 main">
+
+            <div class="table-responsive mytable">
+              <table class="table">
+                <thead >
+                  <tr>
+                    <th>Balance</th>
+                    {% if total >= 0 %}
+                      <th >+&nbsp;{{ total }}</th>
+                    {% else %}
+                      <th >{{ total }}</th>
+                    {% endif %}
+                  </tr>
+                </thead>
+                <tbody >
+                  <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;Expenses</td>
+                    <td  class="td_expenses">{{ expenses_total }}</td>
+                  </tr>
+                  {% for i in expenses_values %}
+                      {% if i.1 != 0 %}
+                          <tr>
+                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ i.0 }}</td>
+                            <td  class="td_expenses">{{ i.1 }}</td>
+                          </tr>
+                      {% endif %}
+                  {% endfor %}
+                  
+                  <tr> 
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;Incomes</td>
+                    <td class="td_incomes">{{ incomes_total }}</td>
+                  </tr>
+                  {% for i in incomes_values %}
+                      {% if i.1 != 0 %}
+                          <tr>
+                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ i.0 }}</td>
+                            <td class="td_incomes">{{ i.1 }}</td>
+                          </tr>
+                      {% endif %}
+                  {% endfor %}
+                  <!-- <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Salary</td>
+                    <td>2200</td>
+                  </tr> -->
+                </tbody>
+              </table>
+            </div>
+          
+            <h3 class="">Categories</h3>
+            <div id="pie_chart" class="div-chart"></div>
+            <br>
+            <br>
+            <h3 class="">CashFlow in last year</h3>
+            <div id="line_chart" class="div-chart"></div>
+                
+            {% googlecharts %}
+                {% data pie_chart_values "pie" %}
+                    {% col 'string' "Name" %}"{{ val }}"{% endcol %}
+                    {% col 'number' "Value" %}{{ val }}{% endcol %}
+                {% enddata %}
+                {% options "pie" %}
+                    kind: "PieChart",
+                    options: {
+                        backgroundColor: "none",
+                        width: 300,
+                        height: 340,
+                        chartArea: {left:11,top:45,width:'93%',height:'100%',},
+                        legend: {position: 'top', maxLines:4, alignment:'center',
+                                textStyle:{color: '#e57841'}
+                        },
+                        pieSliceBorderColor:'none',
+                        sliceVisibilityThreshold:0.015,
+                    }
+                {% endoptions %}
+                {# chart is assembled from container, data and options #}
+                {% graph "pie_chart" "pie" "pie" %}
+                
+                {% data line_chart_values "line" %}
+                    {% col 'string' "Month" %}"{{ val|date:"M Y" }}"{% endcol %}
+                    {% col 'number' "Expense" %}{{ val }}{% endcol %}
+                    {% col 'number' "Income" %}{{ val }}{% endcol %}
+                {% enddata %}
+                {% options "line" %}
+                    kind: "LineChart",
+                    options: {
+                        backgroundColor: "none",
+                        colors:['#ec1313','#00b300'],
+                        hAxis: {baselineColor: '#666666',
+                            textStyle: { color: '#e57841', fontSize: 12},
+                            slantedText: true,
+                            slantedTextAngle: 50,
+                        },
+                        vAxis: {baselineColor: '#666666',
+                                gridlines: {color: '#666666', count: -1},
+                                textStyle: { color: '#e57841', fontSize: 12},
+                        },
+                        pointShape:  'diamond',
+                        pointSize: 4,
+                        chartArea: {left:42,top:30,width:'90%',},
+                        legend: {position: 'top', maxLines:1, alignment:'center',
+                                textStyle:{color: '#e57841', fontSize: 12}},
+                        gridlineColor: "#ddd",
+                        width: 300,
+                        height: 220,
+                    }
+                {% endoptions %}
+                {# chart is assembled from container, data and options #}
+                {% graph "line_chart" "line" "line" %}
+                
+            {% endgooglecharts %}
+          
+        </div>
+      </div>
+      <!-- <div style="height:400px;">
+      </div> -->
+    </div>
+
+{% endblock content %}
+
+    
+
+        
+

@@ -1,0 +1,239 @@
+/* Border for debugging */
+/* * {
+   border: 1px solid white !important;
+} */
+/* 
+Variables
+Background: #2d4059         blue
+Navbar background: #ea5455  red
+Icons: #e57841              orange
+Text: #ffd460               yellow
+Text in nabar: #f7bbbb      rose  */
+
+a, h4, h6 {
+    color: #e57841;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #ffd460;
+}               /* No underline for links, play with hover */
+
+a *:hover {
+    text-decoration: none;
+    color: #ffd460;
+}               /* No underline for links, play with hover */
+
+body {
+  padding-top: 50px;
+  background-color: #2d4059;
+}
+.starter-template {
+  padding: 15px 15px;
+  text-align: center;
+}
+
+.my_category_element {
+    padding-left:0px;
+    padding-right:0px;
+}
+.my_category_element > h5 {
+    margin-top:5px;
+    margin-bottom:20px;
+    color: #ffd460;
+}             /* transactions:: Move category name closer to icon */
+
+h5.icon_name{
+    height:30px;
+}                       /* transactions:: Make icon name be in two rows */
+
+/* Override bootstrap navbar and navbar-default */
+/* Stretch full-screen, button width, vertical align, centering */
+.mynavbar {
+    border:none;
+}
+.mynavbar > div {
+    display: table;
+    width: 100%;
+} 
+.mynavbar > div > ul {
+    display: table-row;
+    margin: 0;
+}
+.mynavbar > div > ul > li {
+    display: table-cell; text-align:center; float:none; width:44%;
+    font-size:17px; 
+    vertical-align: middle;
+    height: 44px;
+    
+}
+.mynavbar > div > ul > li:last-child {
+    width:12%;
+}
+.mynavbar > div > ul > li > a { 
+    vertical-align: middle;
+    line-height:44px;
+    padding: 0px 0 0px 0;         /* Minus border at bottom (=3px)*/
+}
+.mynavbar > div > ul > li:last-child > a { 
+    /* border-left-width: 0px; */             /* Hide border artefact */
+    border-right-width: 0px;
+    font-size:28px;
+    padding-top: 0px;
+}                                   /* Hide border artefact and tune manualy cog paddings*/
+/* Navbar underline border on active */
+.mynavbar > div > ul > li > a:hover,
+.mynavbar > div > ul > li > a:active {
+    border-bottom: 3px solid #ffd460!important;
+}
+
+/* Redeclare since we override the float above */
+.navbar-nav.navbar-right {
+  float: right;
+}
+/* End of Stretch navbar full-screen */
+
+
+/* Undo the collapsing navbar */
+.navbar-nav {
+  float: none;
+}
+/* Redeclare since we override the float above */
+.navbar-nav.navbar-right {
+  float: right;
+}
+/* End of Undo the collapsing navbar */
+
+
+/* My navbar Colors (based on native bootstrap style), add my underline */
+.navbar-default {
+  background-color: #ea5455;
+}
+.navbar-default .navbar-text {
+  color: #f7bbbb;
+}
+.navbar-default .navbar-nav > li > a,
+.nav .open > a,                     /* Dropdown borders on open */
+.nav .open > a:hover,               /* Dropdown borders on open */
+.nav .open > a:focus {              /* Dropdown borders on open */
+  color: #f7bbbb;
+  border-top: 3px solid #ea5455;   /* Add navbar upperline bottom border */
+  border-bottom: 3px solid #ea5455;   /* Add navbar underline bottom border */
+
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #ffd460;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu {
+  background-color: #ea5455;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a {
+  color: #f7bbbb;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+  color: #ffd460;
+  background-color: #ea5455;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu > li > .divider {
+  background-color: #ea5455;
+}
+.navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+.navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+.navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+  color: #ffd460;
+  background-color: #ea5455;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: #ffd460;
+  background-color: #ea5455;
+  border-bottom: 3px solid #ffd460!important;  /* .active button is underlined permanently */
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  color: #ffd460;
+  background-color: #ea5455;
+}
+.navbar-default .navbar-link {
+  color: #f7bbbb;
+}
+.navbar-default .navbar-link:hover {
+  color: #ffd460;
+}
+
+/* End of navbar Colors */
+
+/* My button color customization */
+.mybtn-primary {
+    background-color: #ea5455;
+    border-color: #ea5455;
+    color: #f7bbbb;
+}
+.mybtn-primary:hover, .mybtn-primary:focus, .mybtn-primary:active, 
+.mybtn-primary.active,
+.open > .dropdown-toggle.mybtn-primary {
+    background-color: #ea5455;
+    border-color: #ffd460;
+    color: #ffd460;
+    outline: none;
+}
+.mybtn-primary:active, .mybtn-primary.active {
+    background-color: #ea5455;
+    border-color: #ffd460;
+    color: #ffd460;
+    outline: none;
+    box-shadow: none;
+}
+/* End of My form color customization */
+
+
+/* Nav-pills justification */
+.nav-pills-justified-fix {
+    table-layout: fixed;
+}
+.nav-pills-justified-fix > li {
+    display: table-cell;
+    width: 1%;
+}  
+/* @media (min-width: 0px) {
+} */
+/* End of Nav-pills justification */
+
+
+/* Pills colors, corner radius, text, width schema */
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:hover,
+.nav-pills > li.active > a:focus {
+  color: #2d4059;
+  background-color: #ea5455;
+}                                   /* for Active */
+.nav-pills > li.active > a,
+.nav-pills > li > a:hover,
+.nav-pills > li > a:focus {
+  color: #2d4059;
+  background-color: #ea5455;           /* for Unactive */
+}
+.nav-pills > li > a {
+  border: 1px solid #ea5455;
+  padding-top:4px;
+  padding-bottom:3px;
+  font-size:17px;
+  color: #ea5455;
+  border-radius:6px;
+  
+}
+.nav-pills > li:first-child a {
+  border-bottom-right-radius:0px;
+  border-top-right-radius:0px;
+  border-right-width:0px
+}
+.nav-pills > li:last-child a {
+  border-bottom-left-radius:0px;
+  border-top-left-radius:0px;
+  border-left-width:0px
+}
+/* End of Pills color, corner radius, text, height schema */

@@ -1,0 +1,67 @@
+{% extends "account/allauth_base.html" %}
+{% load bootstrap3 %}       <!-- Using bootstrap3  app-->
+    
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block head_title %}{% trans "Log In" %}{% endblock %}
+
+{% block content %}
+
+<br>
+<a class="btn btn-facebook"
+    href="/accounts/facebook/login/"
+    style="padding-bottom:3px;">
+    <i class="fa fa-facebook-official fa-2x"
+        style="vertical-align: middle;padding-bottom:1px;"></i>&nbsp;&nbsp;Log In with Facebook
+</a>
+    
+<!-- <h4>{% trans "Log In with your Facebook account" %}</h4>
+<div class="socialaccount_ballot">
+  <ul class="socialaccount_providers">
+    {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+  </ul>
+</div> 
+
+{% get_providers as socialaccount_providers %}-->
+<br>
+<br>
+{% if socialaccount_providers %}
+<div class="login-or"><p>{% trans 'or use your email:' %}</p></div>
+{% include "socialaccount/snippets/login_extra.html" %}
+
+{% else %}
+<p>{% blocktrans %}If you have not created an account yet, then please
+<a href="{{ signup_url }}">Register</a> first.{% endblocktrans %}</p>
+{% endif %}
+
+<form class="login" method="POST" action="{% url 'account_login' %}">
+  {% csrf_token %}
+<!--   {{ form.as_p }} -->
+  {% bootstrap_form form layout='inline' %}   <!-- Using bootstrap3  app -->
+
+  {% if redirect_field_value %}
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+  {% endif %}
+  <button class="primaryAction btn mybtn-primary btn-primary" type="submit">
+    {% trans "Log In" %}</button>
+  <br>
+  <br>
+  <div>
+      <a class="button secondaryAction" href="{% url 'account_reset_password' %}">
+        {% trans "Forgot Password?" %}
+      </a>
+  </div>
+</form>
+
+<br>
+<br>
+<p>or</p>
+<p><a href="{{ signup_url }}">Register</a> your email</p>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+{% endblock %}

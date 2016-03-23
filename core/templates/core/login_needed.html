@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+ 
+{% block title %}Under{% endblock title %}
+
+{% block content %}
+    <br>      
+    <br>      
+    <div style="background-color:grey;">
+        <a href="#"><h1 style="color:black;margin-bottom:20px"
+            id="number"
+            onclick="count()"></h1></a>
+    </div>
+    <br>      
+    <br>      
+    <div>
+        <h4><i class="fa fa-exclamation-triangle fa-3x"></i></h4>
+        <h4>Sorry, this page is for authenticated Users only</h4>
+        <h4>Please <a href="/accounts/login/">Log In</a> first</h4>
+    </div>
+    <br>
+    <h6>{% if user.is_authenticated %}Welcome back {{ user.email }}
+        {% else %}You are not logged in
+        {% endif %}
+    </h6>
+    <div style="height:5px;font-size:11px;color:#ffffff;"> 
+        {% if request.user.is_authenticated %}
+            <a href="/accounts/logout/" class="pull-right" >Log Out</a>
+            {% if request.user.first_name or request.user.last_name %}
+                {{ request.user.first_name }} {{ request.user.last_name }}
+            {% else %}{{ request.user.username }}
+            {% endif %}
+            &nbsp;&nbsp;FamilyID:{{request.user.userprofile.family_id}}
+            &nbsp;&nbsp;PIN:{{request.user.userprofile.family_id.pin}}
+        {% else %}<a href="/accounts/login/" class="pull-right">Log In</a>
+        {% endif %}
+    </div>
+    
+    <!-- <script type="text/javascript">
+        function sayGoodbye(){
+        console.log("goodbye");
+        $("#title").html("Goodbye");
+        $("#title").click(function () {
+            $("#title").html("Hello");
+            $("#title").off("click");
+            });
+        };
+    </script> -->
+
+    <!-- Using var - increasing number on click -->
+    <!-- <script type="text/javascript"> 
+        var counter = 0; 
+        $("#number").text(counter);
+        function count() { 
+        counter = counter + 1;
+        // set the h1 element (with id “number”) 
+        // with the value of ‘counter' 
+        $("#number").text(counter); 
+        } 
+    </script> -->
+
+    <!-- SRC replacement on click -->
+    <!-- <script type="text/javascript">
+        $(".crop-img").click(function(){
+            $("#bigImage").attr('src',$(this).attr('src'));
+            }
+        );
+    </script>    -->
+{% endblock content %}
+    
+
+        
+

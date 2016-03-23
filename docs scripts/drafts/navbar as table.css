@@ -1,0 +1,38 @@
+/* Border for debugging */
+/* * {
+   border: 1px solid white !important;
+} */
+.toolbar div {
+    display:table;
+    width: 100%;
+    padding:0;
+    background-color: #ea5455;
+}
+.toolbar ul {
+    display:table-row;
+}
+.toolbar ul li {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    width:44%;
+/*     border: solid 1px black; */
+}
+.toolbar ul li:last-child {
+    width:12%;
+}
+.toolbar ul li a {
+    vertical-align: middle;
+    display: block;
+    line-height:60px;
+/*     border: solid 1px black; */
+    border-bottom: 3px solid #ea5455;   /* Add navbar underline bottom border */
+}
+.toolbar ul li:last-child a {
+    font-size:28px;
+}
+.toolbar ul li a:hover,
+.toolbar ul li a:active {
+    border-bottom: 3px solid #ffd460!important;
+}
+/* 

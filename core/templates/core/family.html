@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load bootstrap3 %}       <!-- Using bootstrap3 app-->
+
+{% block title %}Family Settings{% endblock title %}
+
+{% block content %}
+    <h5>Greatings,
+    {% if request.user.first_name or request.user.last_name %}
+    {{ request.user.first_name }}&nbsp;{{ request.user.last_name }}
+    {% else %} {{ request.user.email }}
+    {% endif %}    
+     !</h5>
+    <div id="wrapper">
+        <div id="left">
+<!--         <div id="left" style="background-color:coral;"> -->
+            <h5>Your Family:</h5>
+            <h3>
+<!--             <div style="background-color:lightblue;"> -->
+               {{request.user.userprofile.family_id}}
+            </h3>
+        </div>
+        <div id="right">
+<!--         <div id="right" style="background-color:khaki;"> -->
+            <h5>Your Family PIN:</h5>
+            <h3>
+<!--             <div style="background-color:pink;"> -->
+               {{request.user.userprofile.family_id.pin}}
+            </h3>
+        </div>
+    </div>
+    {% if family_members %}
+        <h5>together with:</h5>
+        <ul>
+        {% for family_member in family_members%}
+            <li id="li">
+            {{ family_member.first_name }}&nbsp;{{ family_member.last_name }}&nbsp;{{ family_member.email }}
+            </li>
+        {% endfor%}
+        </ul>
+    {% endif %}
+    <h5>Your family members can join you. Just share this two numbers with them</h5>
+    <h5>or</h5>
+    <h5>your can join another family:</h5>
+    <div>
+        <form method='POST' action='' >
+            {% csrf_token %}
+            
+            <!-- {{form.as_p}} -->          <!-- Default Django -->
+            {% bootstrap_form form %}   <!-- Using bootstrap3  app-->
+            <!-- {% bootstrap_form form layout='inline' %} -->   <!-- Using bootstrap3  app-->
+    
+            <div class="actions form-actions">
+                <button type="submit" class="btn mybtn-primary btn-primary">Join</button>
+            </div>    
+        </form>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+{% endblock content %}
+    
+
+        
+
