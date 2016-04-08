@@ -19,24 +19,21 @@ class TransactionForm(forms.ModelForm):
 
     
 class DateForm(forms.Form):
-#         def __init__(self, *args, **kwargs):
-#         super(SomeForm, self).__init__(*args, **kwargs)
-#         self.fields['field'].initial = 'inital_value'
-    YEAR_CHOICES = ('2015','2016')
-#     mydate = forms.DateField(widget=forms.SelectDateWidget(years=YEAR_CHOICES))
+    def cook_choices(self):
+        SELECTOR_CHOICES = []
+        today = date.today()
+        for i in range(12):
+            SELECTOR_CHOICES.append((str(today.year) + str(today.month).zfill(2),
+                                    str(today.strftime('%B')) + ' ' + str(today.year)))
+            today = today - monthdelta(1)
+        return SELECTOR_CHOICES
+    def __init__(self, *args, **kwargs):
+        super(DateForm, self).__init__(*args, **kwargs)
+        self.fields['selector_mydate'] = forms.ChoiceField(
+            widget=forms.Select(attrs={'onchange': 'this.form.submit();'}),
+            choices=self.cook_choices(),
+            label='' )
 
-    SELECTOR_CHOICES = []
-    today = date.today()
-    for i in range(12):
-        SELECTOR_CHOICES.append((str(today.year) + str(today.month).zfill(2),
-                                str(today.strftime('%B')) + ' ' + str(today.year)))
-        today = today - monthdelta(1)
-
-    selector_mydate = forms.ChoiceField(
-                    widget=forms.Select(attrs={'onchange': 'this.form.submit();'}),
-                    choices=SELECTOR_CHOICES,
-                    label='' )
-    
 class pureProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile

@@ -27,6 +27,8 @@ def dashboard(request):
         return render(request, 'core/login_needed.html', 
               {'navbar':'settings'})   # for navbar active state triggering
     this_month_date = str(date.today().year) + str(date.today().month).zfill(2)
+    #debug_datetime_now = datetime.now().strftime('%Y.%m.%d %H:%M:%S')  #  Time like '2016.04.08 15:08:34'
+    
     if 'mydate' in request.session:
         mydate = request.session['mydate']
     else:
