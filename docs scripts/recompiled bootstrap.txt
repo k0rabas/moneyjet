@@ -1,6 +1,9 @@
 My less snapshot:
 http://getbootstrap.com/customize/?id=2aa60b49631fb8fd1113 
 
+.json in static_root dir
+
+
 20160223 -
 Navbar non-collapse, Dropdown non-responsive:
 @grid-float-breakpoint = 0

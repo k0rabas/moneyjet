@@ -1,0 +1,7 @@
+Django==1.9.1
+django-allauth==0.24.1
+django-bootstrap3==7.0.0
+django-google-charts==0.1.1
+django-qsstats-magic==0.7.2
+MonthDelta==0.9.1
+python-dateutil==2.5.0
