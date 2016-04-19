@@ -28,7 +28,7 @@ if not settings.DEBUG:
     # SECURITY WARNING: don't run with debug turned on in production!
     DEBUG = False
     
-    ALLOWED_HOSTS = ['moneyjet.pythonanyware.com']
+    ALLOWED_HOSTS = ['moneyjet.pythonanywhere.com',]
     
     
     # Application definition

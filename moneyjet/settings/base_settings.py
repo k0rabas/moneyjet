@@ -25,7 +25,7 @@ SECRET_KEY = 'f$&^_5jxopx2l82ejzdwh*j0v#i$a&jgtijv_s76)f+$1)9_(z'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['moneyjet.pythonanyware.com']
+ALLOWED_HOSTS = ['moneyjet.pythonanywhere.com',]
 
 
 # Application definition
