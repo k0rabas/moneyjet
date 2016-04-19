@@ -33,3 +33,5 @@ with nicely and intuitive representation.
 * django-bootstrap3
 * django-googlecharts
 * django-monthdelta
+
+Project [requirements](https://github.com/k0rabas/moneyjet/blob/master/requirements.txt)
