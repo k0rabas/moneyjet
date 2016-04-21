@@ -3,3 +3,4 @@ db.sqlite3
 db.sqlite3
 moneyjet/settings/local.py
 db.sqlite3
+moneyjet/settings/passwd.py
