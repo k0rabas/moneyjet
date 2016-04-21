@@ -23,8 +23,9 @@ if not settings.DEBUG:
     # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
     
     # SECURITY WARNING: keep the secret key used in production secret!
-    SECRET_KEY = 'f$&^_5jxopx2l82ejzdwh*j0v#i$a&jgtijv_s76)f+$1)9_(z'
-    
+    # loaded from .passwd
+    # SECRET_KEY = ''
+
     # SECURITY WARNING: don't run with debug turned on in production!
     DEBUG = False
     
