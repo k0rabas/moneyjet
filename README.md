@@ -1,5 +1,5 @@
 ## moneyjet
-A simple personal income/expense balance management tool
+A simple personal income and expense balance management tool
 
 ### Home
 Application lives [Here](http://moneyjet.pythonanywhere.com)
