@@ -5,7 +5,8 @@
 {% block title %}Add New Transaction{% endblock title %}
 
 {% block content %}
-    <br>
+    <!-- <br> -->
+    <h4 class='my-align-left'>{{ category }} new transaction:</h4>
     <form method='POST' action='' >
         {% csrf_token %}
         

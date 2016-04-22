@@ -148,7 +148,8 @@ def add_trans_view(request, category_id):
         return HttpResponseRedirect('/')
     return render(request, 'core/transaction_form.html',
                   {'form': form,
-                   'navbar':'transact'})
+                   'navbar':'transact',
+                   'category': category},)
 
 def family(request):
     if not request.user.is_authenticated():

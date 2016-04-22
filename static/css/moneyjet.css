@@ -58,6 +58,10 @@ h5.icon_name{
     height:30px;
 }                       /* transactions:: Make icon name be in two rows */
 
+.my-align-left {
+    text-align: left;
+}
+
 /* Override bootstrap navbar and navbar-default */
 /* Stretch full-screen, button width, vertical align, centering */
 .mynavbar {
