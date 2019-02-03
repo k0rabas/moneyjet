@@ -5,11 +5,10 @@
 {% block title %}Add New Transaction{% endblock title %}
 
 {% block content %}
-    <!-- <br> -->
-    <h4 class='my-align-left'>{{ category }} new transaction:</h4>
+    <h4 class='my-align-left'>{{ category }} new transaction</h4>
     <form method='POST' action='' >
         {% csrf_token %}
-        
+
         <!-- {{form.as_p}} -->          <!-- Default Django -->
         {% bootstrap_form form layout='inline' %}   <!-- Using bootstrap3  app-->
 
@@ -17,10 +16,39 @@
         {{form.user_id.as_hidden}}          hide in template from User -->
         <div class="actions form-actions">
             <button type="submit" class="btn mybtn-primary btn-primary">Done</button>
-        </div>    
+        </div>
     </form>
-{% endblock content %}
-    
 
-        
+    <br>
+    <h4 class='my-align-left'> History: </h4>
+   <div class="table-responsive mytable">
+      <table class="table">
+        <!-- <thead >
+          <tr>
+            <th>Balance</th>
+            {% if total >= 0 %}
+              <th >+{{ total }}</th>
+            {% else %}
+              <th >{{ total }}</th>
+            {% endif %}
+          </tr>
+        </thead> -->
+        <tbody >
+          {% for i in transaction_history %}
+              <tr>
+                <td>{{ i.0 }}</td>
+                <td>{{ i.1 }}</td>
+                <td>{{ i.2 }}</td>
+                <td>{{ i.3 }}</td>
+              </tr>
+          {% endfor %}
+          
+        </tbody>
+      </table>
+    </div>
+
+{% endblock content %}
+
+
+
 

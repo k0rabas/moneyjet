@@ -146,10 +146,23 @@ def add_trans_view(request, category_id):
         # end of post-process
         instance.save()
         return HttpResponseRedirect('/')
+    #   Getting data for Transactions History hint on the bottom of a screen
+    t2 = Transaction.objects.filter(family_id=request.user.userprofile.family_id,
+                                    category_id=category)
+    history_list = []
+    # list of tuples [(a,b,c,d),]
+    for i in t2:
+        tup = (str(i.user_id), str(i.date), int(i.amount/100), i.note )
+        history_list.append(tup)
+    # sort by date descending
+    history_list = sorted(history_list, key=lambda mytuple: mytuple[1], reverse=True) 
+
     return render(request, 'core/transaction_form.html',
                   {'form': form,
                    'navbar':'transact',
-                   'category': category},)
+                   'category': category,
+                   'transaction_history': history_list[:5], # transfer only first five tuples sorted by date desc
+                   },)
 
 def family(request):
     if not request.user.is_authenticated():

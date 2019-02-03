@@ -35,7 +35,7 @@ a:hover {
 }               /* No underline for links, play with hover */
 
 .starter-template {
-  padding: 15px 15px;
+  padding: 15px 15px ;
   text-align: center;
 }
 
@@ -57,6 +57,10 @@ a:hover {
 h5.icon_name{
     height:30px;
 }                       /* transactions:: Make icon name be in two rows */
+
+.my-align-left {
+    text-align: left;
+}
 
 /* Override bootstrap navbar and navbar-default */
 /* Stretch full-screen, button width, vertical align, centering */
@@ -268,8 +272,11 @@ h5.icon_name{
 
 /* Family Settings */
 #wrapper {
-    display: flex;
-    display: -webkit-flex;
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
     margin: 0 0 15px 0;
 }
 #left {
@@ -283,12 +290,17 @@ h5.icon_name{
 #wrapper > div > div,
 #wrapper > div > h3 {
     margin: 0 10px 0 10px;
-    padding: 5px 0 2px 0;
+    padding: 5px 0 5px 0;
     border: 2px solid #e57841;
 }
 #li {               /* family.html -> Family members list */
   text-align: left;
 }
+
+/* .container {
+    padding-left:0px;
+    padding-right:0px;
+} */
 
 
 /* End of Family Settings */
